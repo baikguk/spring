@@ -1,0 +1,2 @@
+필요 라이브러리 불러와주거나 ,빌드를 관리하는 tool 
+ex) Maven Gradle  -> 주로 Gradle 사용
