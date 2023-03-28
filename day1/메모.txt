@@ -1,2 +1,8 @@
-필요 라이브러리 불러와주거나 ,빌드를 관리하는 tool 
-ex) Maven Gradle  -> 주로 Gradle 사용
+Maven Gradle  :필요 라이브러리 불러와주거나 ,빌드를 관리하는 tool
+	-> 주로 Gradle 사용
+start.spring.io 스프링 프로젝트 생성 후 만들어지는 파일에서(snapshot 만드는 버젼, M1 : 정식으로 개봉되지 않음
+	.idex : 인텔리지가 사용하는 설정 파일
+	gradle : gradle이 사용하는 폴더
+	build.gradle : 플러그인(버젼, 설정파일) , repositories(dependencies를 다운받는곳), dependencies(tmyeleaf -> html 만든는 템플릿 엔진, web)
+
+main 실행 -> SpringBootApplication이 실행하면서 내장된 tomcat 웹서버를 실행하면서 스프링 부트가 같이 올라감
