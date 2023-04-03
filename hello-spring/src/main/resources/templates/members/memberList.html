@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}"><!-- ${} 는 model안의 값을 꺼내옴 th:each tmyleaf문법으로 루프를 돌면서 model의 member라는 attrtibute를 모두 조회함                -->
+                <td th:text="${member.id}"></td>
+<!--                getter, setter 접근방식 property 접근 방식이라함 member.id이지만 member.getid()와 동일?-->
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
