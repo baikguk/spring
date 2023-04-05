@@ -5,6 +5,7 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,9 @@ import java.util.Optional;
  */
 //@Service
 // 서비스는 비즈니에 의존적으로 네이밍함
+
+@Transactional
+// ㄴ jpa를 쓰기위해서는 항상 transactional이라는 어노테이션이 필요함
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -32,14 +36,26 @@ public class MemberService {
      * 회원가입
      * */
     public Long join(Member member) {
-        //동명이인 안됨 가정
         validateDuplicateMember(member);//중복회원검증
         memberRepository.save(member);
         return member.getId();
+
+        //┌고전적인 시간호출 방법 -> 메소드관리가 힘듬 -> AOP로 해결
+//        long start = System.currentTimeMillis();
+//        try {
+//            //동명이인 안됨 가정
+//            validateDuplicateMember(member);//중복회원검증
+//            memberRepository.save(member);
+//            return member.getId();
+//        }finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish-start;
+//            System.out.println("join = " +timeMs+"ms");
+//        }
     }
 
     private void validateDuplicateMember(Member member) {
-        memberRepository.findbyName(member.getName())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m-> {
                      throw new IllegalStateException("이미 존재하는 회원입니다");
                 });
@@ -52,6 +68,6 @@ public class MemberService {
     }
 
     public Optional<Member> findOne(Long memberId) {
-        return memberRepository.findbyId(memberId);
+        return memberRepository.findById(memberId);
     }
 }

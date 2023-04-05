@@ -33,7 +33,7 @@ public class MemoryMemberRepositorytTest {
 
         repository.save(member);
 
-        Member result = repository.findbyId(member.getId()).get(); //맨뒤의  .get()은 Optinal을 벗긴값을 얻음
+        Member result = repository.findById(member.getId()).get(); //맨뒤의  .get()은 Optinal을 벗긴값을 얻음
 //        Assertions.assertEquals(member,result); // == System.out.println(result==memeber)
         assertThat(member).isEqualTo(result);
     }
@@ -48,7 +48,7 @@ public class MemoryMemberRepositorytTest {
         member2.setName("spring2");
         repository.save(member2);
 
-        Member result = repository.findbyName("spring1").get();//자동변수 단축키 ctrl+alt+v
+        Member result = repository.findByName("spring1").get();//자동변수 단축키 ctrl+alt+v
         assertThat(result).isEqualTo(member1);
     }
 
