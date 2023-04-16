@@ -1,13 +1,22 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService {
     //구현체가 하나일때 변수뒤에 Impl을 붙임
 
     private final MemberRepository memberRepository;
 
+
+    @Autowired // ┌ac.getBean(MemberRepository.class)//  ┌의존관계 자동 주입
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+
+
+
 
 
     @Override
