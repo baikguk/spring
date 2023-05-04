@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //review
 //@RequiredArgsConstructor // 롬복의 어노테이션 -> 필수값(final) 을 파라미터로 받는 생성자를 만들어줌
 public class OrderServiceImpl implements OrderService {
 

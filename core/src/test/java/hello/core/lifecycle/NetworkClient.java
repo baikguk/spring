@@ -51,6 +51,7 @@ public class NetworkClient /*implements InitializingBean, DisposableBean*/ {
         connect();
         call("초기화 연결 메세지");
     }
+    //review
     @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
