@@ -33,7 +33,7 @@ public class AppConfigure {//구성영역을 만들어 줌으로써
     //  soutm으로 메소드 호출 프린트 해서 테스트에서 확인하면
     // memberRepsoitory 한번만 호출함 -> 자바언어적으로 이상함
     // @Configuration때문에 그럼
-   //review
+   //review 넘모어렵네
     @Bean
     public MemberService memberService() {
         System.out.println("call AppConfigure.memberService");
